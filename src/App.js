@@ -13,9 +13,10 @@ class App extends Component {
       isLoading: true,
       results: [],
       label: 'bug',
-      language: 'javascript'
+      language: 'JavaScript'
     }
     this.handleClick = this.handleClick.bind(this)
+    this.handleUpdate = this.handleUpdate.bind(this)
   }
 
   handleClick(e) {
@@ -23,8 +24,12 @@ class App extends Component {
     this.setState({ language: e.target.value })
   }
 
+  handleUpdate(prop) {
+    this.setState({ results: prop, isLoading: false })
+  }
+
   componentWillMount() {
-    fetch(`https://api.github.com/search/issues?q=windows+label:${this.state.label}+language:${this.state.language}+state:open&sort=created&order=asc`)
+    fetch(`https://api.github.com/search/issues?q=windows+label:${this.state.label}+language:${this.state.language}+state:open&sort=created&order=desc`)
       .then(response => response.json())
       .then(data => {
         console.log(data.items)
@@ -44,6 +49,7 @@ class App extends Component {
           isLoading={this.state.isLoading}
           language={this.state.language}
           label={this.state.label}
+          handleUpdate={this.handleUpdate}
         />
       </div>
     );

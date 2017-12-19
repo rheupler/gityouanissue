@@ -1,12 +1,8 @@
-.help-wanted {
-  background-color: blue;
-  color: white;
-}
 
 .button:active,
 .button:visited,
 .button:hover {
-  color: white;
+  color: gray;
 }
 
 .labels {
@@ -17,4 +13,8 @@
   display: inline-block;
   margin-left: 10px;
   margin-right: 10px;
+}
+
+.label-type {
+  display: inline-block;
 }

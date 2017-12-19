@@ -7,4 +7,9 @@
   list-style-type: none;
   max-width: 500px;
   word-wrap: break-word;
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  background-color: floralwhite;
+  margin: 10px;
 }
