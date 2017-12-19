@@ -1,0 +1,10 @@
+.item-list {
+}
+
+.item {
+  text-align: left;
+  border: 2px solid gray;
+  list-style-type: none;
+  max-width: 500px;
+  word-wrap: break-word;
+}

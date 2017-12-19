@@ -1,0 +1,20 @@
+.help-wanted {
+  background-color: blue;
+  color: white;
+}
+
+.button:active,
+.button:visited,
+.button:hover {
+  color: white;
+}
+
+.labels {
+  margin-bottom: 20px;
+}
+
+.label {
+  display: inline-block;
+  margin-left: 10px;
+  margin-right: 10px;
+}
