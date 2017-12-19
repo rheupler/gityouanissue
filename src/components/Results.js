@@ -32,8 +32,8 @@ class Results extends Component {
                 <div className="card-content">
                    <p className="title"><b>Title</b>: {item.title}</p>
               	   <p><b>Description</b>: {item.body}</p>
-                   <p><b>Created at</b>: {new Date(item.created_at).toLocaleString()}</p>
                    <p>{item.labels[0].name}</p>
+                   <p><b>Created at</b>: {new Date(item.created_at).toLocaleString()}</p>
                 </div>
                 <footer className="card-footer">
                   <p className="card-footer-item">
