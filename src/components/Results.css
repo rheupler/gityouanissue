@@ -17,6 +17,7 @@
 
 .label-type {
   padding: 5px;
+  margin: 10px 5px;
   background-color: lightgray;
   font-size: 12px;
   margin-top: 0px;
@@ -30,4 +31,9 @@
 .card-footer {
   display: flex;
   justify-content: space-around;
+}
+
+.card-link {
+  text-decoration: none;
+  color: blue;
 }

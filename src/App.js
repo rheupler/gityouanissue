@@ -14,15 +14,19 @@ class App extends Component {
       isLoading: true,
       results: [],
       label: 'bug',
-      language: 'JavaScript'
+      language: ''
     }
-    this.handleClick = this.handleClick.bind(this)
+    this.handleLangChange = this.handleLangChange.bind(this)
     this.handleUpdate = this.handleUpdate.bind(this)
+    this.handleLabelChange = this.handleLabelChange.bind(this)
   }
 
-  handleClick(e) {
-    console.log(e.target.value)
+  handleLangChange(e) {
     this.setState({ language: e.target.value })
+  }
+
+  handleLabelChange(e) {
+    this.setState({ label: e.target.value })
   }
 
   handleUpdate(prop) {
@@ -30,7 +34,7 @@ class App extends Component {
   }
 
   componentWillMount() {
-    fetch(`https://api.github.com/search/issues?q=windows+label:${this.state.label}+language:${this.state.language}+state:open&sort=created&order=desc`)
+    fetch(`https://api.github.com/search/issues?q=windows+label:${this.state.label}+language:${this.state.language}+state:open&starred?sort=created&per_page=50&direction=asc`)
       .then(response => response.json())
       .then(data => {
         this.setState({ results: data.items, isLoading: false })
@@ -43,7 +47,8 @@ class App extends Component {
       <div className="App">
         <Navbar />
         <Labels
-          handleClick={this.handleClick}
+          handleLangChange={this.handleLangChange}
+          handleLabelChange={this.handleLabelChange}
         />
         <Results
           data={this.state.results}

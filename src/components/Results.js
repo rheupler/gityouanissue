@@ -4,8 +4,8 @@ import './Results.css'
 class Results extends Component {
 
   componentDidUpdate(prevProps, prevState) {
-    if(prevProps.language !== this.props.language) {
-      fetch(`https://api.github.com/search/issues?q=windows+label:${this.props.label}+language:${this.props.language}+state:open&sort=created&order=desc`)
+    if(prevProps.language !== this.props.language || prevProps.label !== this.props.label) {
+      fetch(`https://api.github.com/search/issues?q=windows+label:${this.props.label}+language:${this.props.language}+state:open&sort=created&per_page=50`)
         .then(response => response.json())
         .then(data => {
           this.props.handleUpdate(data.items)
@@ -34,17 +34,19 @@ class Results extends Component {
                 <div className="card-content">
                    <p className="title">{item.title}</p>
                    <p><b>Created at</b>: {new Date(item.created_at).toLocaleString()}</p>
-                   <p className="label-type">{item.labels[0].name.toUpperCase()}</p>
+                   {item.labels.map((item, index) => (
+                     <p key={index} className="label-type">{item.name.toUpperCase()}</p>
+                   ))}
                 </div>
                 <footer className="card-footer">
                   <p className="card-footer-item">
                     <span>
-                      <a href={item.repository_url}>Repo</a>
+                      <a className="card-link" href={item.repository_url}>Repo</a>
                     </span>
                   </p>
                   <p className="card-footer-item">
                     <span>
-                      <a href={item.html_url}>Issue</a>
+                      <a className="card-link" href={item.html_url}>Issue</a>
                     </span>
                   </p>
                 </footer>
