@@ -3,13 +3,31 @@
 
 .item {
   text-align: left;
-  border: 2px solid gray;
-  list-style-type: none;
   max-width: 500px;
+  width: 50%;
   word-wrap: break-word;
   display: inline-block;
-  overflow: hidden;
-  vertical-align: top;
-  background-color: floralwhite;
+  background-color: #f2f2f2;
   margin: 10px;
+  padding: 1rem 1rem;
+  padding-bottom: 0px;
+  border-radius: 7px;
+  box-shadow: 1px 1px 1px lightgray;
+}
+
+.label-type {
+  padding: 5px;
+  background-color: lightgray;
+  font-size: 12px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.title {
+  font-size: 1.4rem;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-around;
 }

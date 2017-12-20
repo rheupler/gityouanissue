@@ -8,6 +8,11 @@
 2. Install dependencies `npm install`
 3. Start local server: `npm start`
 
+## API Usage
+
+I'm using Github API v3 found [here](https://developer.github.com/v3/)
+
+Github only allows 60 unauthenticated API calls per hour. Authenticated users are allowed 5,000 per hour.
 
 ## Contributing
 

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 
+import Navbar from './components/Navbar';
 import Labels from './components/Labels';
 import Results from './components/Results';
 
@@ -32,7 +33,6 @@ class App extends Component {
     fetch(`https://api.github.com/search/issues?q=windows+label:${this.state.label}+language:${this.state.language}+state:open&sort=created&order=desc`)
       .then(response => response.json())
       .then(data => {
-        console.log(data.items)
         this.setState({ results: data.items, isLoading: false })
       })
       .catch(err => console.log(err))
@@ -41,6 +41,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <Navbar />
         <Labels
           handleClick={this.handleClick}
         />
