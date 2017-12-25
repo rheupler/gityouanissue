@@ -26,17 +26,17 @@ class Results extends Component {
       return (
         <div>
           <div>
-            <p>Showing results for: {this.props.language}</p>
+            <p className="showing-language">Showing results for {this.props.language || "all languages"}</p>
           </div>
           <div className="item-list">
             {this.props.data.map((item, index) => (
               <div className="card item" key={index}>
                 <div className="card-content">
                    <p className="title">{item.title}</p>
-                   <p><b>Created at</b>: {new Date(item.created_at).toLocaleString()}</p>
                    {item.labels.map((item, index) => (
                      <p key={index} className="label-type">{item.name.toUpperCase()}</p>
                    ))}
+                   <p><b>Created at</b>: {new Date(item.created_at).toLocaleString()}</p>
                 </div>
                 <footer className="card-footer">
                   <p className="card-footer-item">

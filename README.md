@@ -2,6 +2,8 @@
 
 ## Helps people contribute to open source issues
 
+[Live demo](gitsomeissues.herokuapp.com)
+
 ## Installation
 
 1. Clone repo and navigate to path

@@ -1,4 +1,5 @@
-.item-list {
+.showing-language {
+  margin-bottom: 0px;
 }
 
 .item {
@@ -9,29 +10,38 @@
   display: inline-block;
   background-color: #f2f2f2;
   margin: 10px;
-  padding: 1rem 1rem;
-  padding-bottom: 0px;
   border-radius: 7px;
   box-shadow: 1px 1px 1px lightgray;
 }
 
-.label-type {
-  padding: 5px;
-  margin: 10px 5px;
-  background-color: lightgray;
-  font-size: 12px;
-  margin-top: 0px;
-  margin-bottom: 0px;
-}
-
-.title {
-  font-size: 1.4rem;
+.card-content {
+  padding: 1rem 1rem;
+  padding-bottom: 0px;
 }
 
 .card-footer {
   display: flex;
   justify-content: space-around;
+  padding-left: 0px;
+  border-top: 1px solid lightgray;
+  margin-top: 25px;
 }
+
+.label-type {
+  padding: 5px;
+  margin: 10px 5px;
+  margin-left: 0px;
+  font-size: 12px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  background-color: lightgray;
+}
+
+.title {
+  font-size: 1.4rem;
+  margin-top: 0px;
+}
+
 
 .card-link {
   text-decoration: none;

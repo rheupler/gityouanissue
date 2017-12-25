@@ -9,6 +9,19 @@
   margin-bottom: 20px;
 }
 
+.labels p {
+  margin-bottom: 0px;
+}
+
+.button {
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.button:hover {
+  cursor: pointer;
+}
+
 .label {
   display: inline-block;
   margin-left: 10px;
