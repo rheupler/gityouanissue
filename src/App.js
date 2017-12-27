@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-
+import './scripts.js'
 import Navbar from './components/Navbar';
 import Labels from './components/Labels';
 import Results from './components/Results';

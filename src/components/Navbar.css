@@ -5,3 +5,7 @@
 .navbar h2 {
   font-weight: normal;
 }
+
+.navbar p {
+  font-style: italic;
+}

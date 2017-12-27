@@ -16,6 +16,7 @@
 .button {
   border-radius: 5px;
   padding: 10px;
+  font-family: 'Roboto Mono', monospace;
 }
 
 .button:hover {
@@ -29,6 +30,15 @@
   margin-top: 10px;
 }
 
-.label-type {
+.label-type, .label-language {
   display: inline-block;
+}
+
+.active {
+  background-color: lightgray;
+}
+
+.btn-wrapper-lang,
+.btn-wrapper-label {
+  background-color: white;
 }
