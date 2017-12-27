@@ -14,6 +14,10 @@
   box-shadow: 1px 1px 1px lightgray;
 }
 
+.item-list {
+  margin-bottom: 40px;
+}
+
 .card-content {
   padding: 1rem 1rem;
   padding-bottom: 0px;
@@ -46,4 +50,8 @@
 .card-link {
   text-decoration: none;
   color: blue;
+}
+
+.loading {
+  padding-bottom: 40px;
 }

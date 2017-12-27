@@ -1,11 +1,16 @@
 .navbar {
   background-color: inherit;
+  padding-top: 25px;
+  margin-top: 40px;
 }
 
 .navbar h2 {
   font-weight: normal;
+  margin-bottom: 10px;
 }
 
 .navbar p {
   font-style: italic;
+  margin-bottom: 32px;
+  margin-top: 8px;
 }

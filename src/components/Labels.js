@@ -5,8 +5,8 @@ const Labels = (props) => (
   <div className="labels">
     <p>Filter by label:</p>
     <div className="label btn-wrapper-label">
+      <button onClick={props.handleLabelChange} value="bug" className="label button active">Bug</button>
       <button onClick={props.handleLabelChange} value="help-wanted" className="label button">Help Wanted</button>
-      <button onClick={props.handleLabelChange} value="bug" className="label button">Bug</button>
       <button onClick={props.handleLabelChange} value="first-timers-only" className="label button">First-timers only</button>
       <button onClick={props.handleLabelChange} value="good-first-bug" className="label button">Good first bug</button>
     </div>

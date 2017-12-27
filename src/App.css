@@ -1,7 +1,19 @@
+* {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  background-color: #232928;
+}
+
 .App {
   text-align: center;
   background-color: white;
   font-family: 'Roboto Mono', monospace;
+  max-width: 1300px;
+  margin: 0 auto;
 }
 
 .App-logo {
