@@ -14,3 +14,12 @@
   margin-bottom: 32px;
   margin-top: 8px;
 }
+
+@media screen and (max-width: 1039px) {
+
+  .navbar {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  
+}

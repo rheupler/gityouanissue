@@ -7,7 +7,8 @@
   max-width: 500px;
   width: 50%;
   word-wrap: break-word;
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
   background-color: #f2f2f2;
   margin: 10px;
   border-radius: 7px;
@@ -17,11 +18,15 @@
 .item-list {
   margin-bottom: 40px;
   padding-bottom: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .card-content {
   padding: 1rem 1rem;
   padding-bottom: 0px;
+  flex: 1;
 }
 
 .card-footer {
@@ -55,4 +60,10 @@
 
 .loading {
   padding-bottom: 40px;
+}
+
+@media screen and (max-width: 1039px) {
+  .item {
+    width: 80%;
+  }
 }
