@@ -1,11 +1,20 @@
 import React, { Component } from 'react';
+import Search from './Search';
 import './Results.css'
 
 class Results extends Component {
+  constructor(props) {
+    super(props)
+
+    this.handleSearch = this.handleSearch.bind(this)
+  }
 
   componentDidUpdate(prevProps, prevState) {
-    if(prevProps.language !== this.props.language || prevProps.label !== this.props.label) {
-      fetch(`https://api.github.com/search/issues?q=windows+label:${this.props.label}+language:${this.props.language}+state:open&sort=created&per_page=50`)
+    if(prevProps.language !== this.props.language ||
+       prevProps.label !== this.props.label ||
+       prevProps.sort !== this.props.sort ||
+       prevProps.searchTerm !== this.props.searchTerm) {
+      fetch(`https://api.github.com/search/issues?q=${this.props.searchTerm}+label:${this.props.label}+language:${this.props.language}+state:open&sort=${this.props.sort}&per_page=80`)
         .then(response => response.json())
         .then(data => {
           this.props.handleUpdate(data.items)
@@ -14,17 +23,38 @@ class Results extends Component {
     }
   }
 
+  handleSearch(e) {
+    e.preventDefault()
+    let value = document.getElementById('search-input').value
+    this.props.updateSearchState(value)
+    document.getElementById('search-input').value = ''
+  }
+
   renderList() {
 
     if (this.props.isLoading) {
       return (
         <h1 className="loading">Loading...</h1>
       )
+    } else if (!this.props.data){
+      return (
+        <h1 className="loading">No results :(...</h1>
+      )
     } else {
       return (
         <div>
           <div>
             <p className="showing-language">Showing results for {this.props.language || "all languages"}</p>
+          </div>
+          <form onChange={this.props.handleSort}>
+            <p>Filter results by: </p>
+            <select name="sort">
+              <option value="stars">Popularity</option>
+              <option value="created">Newest</option>
+            </select>
+          </form>
+          <div className="search-container">
+            <p>Searching for:{this.props.searchTerm || ' n/a'}</p><Search handleSearch={this.handleSearch} />
           </div>
           <div className="item-list">
             {this.props.data.map((item, index) => (

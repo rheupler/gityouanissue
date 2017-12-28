@@ -14,27 +14,39 @@ class App extends Component {
       isLoading: true,
       results: [],
       label: 'bug',
-      language: ''
+      language: '',
+      sort: 'stars',
+      searchTerm: ''
     }
     this.handleLangChange = this.handleLangChange.bind(this)
     this.handleUpdate = this.handleUpdate.bind(this)
     this.handleLabelChange = this.handleLabelChange.bind(this)
+    this.handleSort = this.handleSort.bind(this)
+    this.updateSearchState = this.updateSearchState.bind(this)
   }
 
   handleLangChange(e) {
-    this.setState({ language: e.target.value })
+    this.setState({ language: e.target.value, searchTerm: '' })
   }
 
   handleLabelChange(e) {
-    this.setState({ label: e.target.value })
+    this.setState({ label: e.target.value, searchTerm: '' })
   }
 
   handleUpdate(prop) {
     this.setState({ results: prop, isLoading: false })
   }
 
+  handleSort(e) {
+    this.setState({ sort: e.target.value })
+  }
+
+  updateSearchState(props) {
+    this.setState({ searchTerm: props })
+  }
+
   componentWillMount() {
-    fetch(`https://api.github.com/search/issues?q=windows+label:${this.state.label}+language:${this.state.language}+state:open&starred?sort=created&per_page=50&direction=asc`)
+    fetch(`https://api.github.com/search/issues?q=windows+label:${this.state.label}+language:${this.state.language}+state:open&starred?sort=${this.state.sort}&per_page=80&direction=asc`)
       .then(response => response.json())
       .then(data => {
         this.setState({ results: data.items, isLoading: false })
@@ -55,7 +67,11 @@ class App extends Component {
           isLoading={this.state.isLoading}
           language={this.state.language}
           label={this.state.label}
+          sort={this.state.sort}
+          searchTerm={this.state.searchTerm}
           handleUpdate={this.handleUpdate}
+          handleSort={this.handleSort}
+          updateSearchState={this.updateSearchState}
         />
       </div>
     );
