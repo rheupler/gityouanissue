@@ -45,6 +45,10 @@
   display: inline-block;
 }
 
+.lang-header {
+  margin-top: 25px;
+}
+
 .active {
   background-color: lightgray;
   box-shadow: 0px 0px 0px;

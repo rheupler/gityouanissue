@@ -10,7 +10,7 @@ const Labels = (props) => (
       <button onClick={props.handleLabelChange} value="first-timers-only" className="label button">First-timers only</button>
       <button onClick={props.handleLabelChange} value="good-first-bug" className="label button">Good first bug</button>
     </div>
-    <p>Or by language:</p>
+    <p className="lang-header">Or by language:</p>
     <div className="label-language btn-wrapper-lang">
       <button onClick={props.handleLangChange} value="" className="label button active">Any</button>
       <button onClick={props.handleLangChange} value="JavaScript" className="label javascript button">JavaScript</button>
