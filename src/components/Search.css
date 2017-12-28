@@ -1,0 +1,21 @@
+.search-bar {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+}
+
+#search-input,
+.search-btn {
+  font-family: 'Roboto Mono', monospace;
+}
+
+.search-btn {
+  padding: 2px;
+  background-color: blue;
+  color: white;
+}
+
+#search-input {
+  margin-right: 5px;
+  border: 1px solid black;
+}

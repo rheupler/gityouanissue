@@ -1,10 +1,11 @@
 import React from 'react';
+import './Search.css'
 
 const Search = ({ handleSearch }) =>
   <div className="search-bar">
     <form onSubmit={handleSearch}>
       <input placeholder="Search by keyword..." id="search-input" type="text"/>
-      <button type="submit">Submit</button>
+      <button className="search-btn" type="submit">Submit</button>
     </form>
   </div>
 

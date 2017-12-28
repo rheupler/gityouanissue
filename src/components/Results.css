@@ -1,5 +1,5 @@
 .showing-language {
-  margin-bottom: 0px;
+  margin-bottom: 15px;
 }
 
 .item {
@@ -17,6 +17,8 @@
 
 .item-list {
   margin-bottom: 40px;
+  margin-left: 100px;
+  margin-right: 100px;
   padding-bottom: 40px;
   display: flex;
   flex-wrap: wrap;
@@ -60,6 +62,41 @@
 
 .loading {
   padding-bottom: 40px;
+}
+
+/*
+FORM AND SEARCH
+*/
+
+.search-container {
+  display: flex;
+  align-items: flex-end;
+}
+
+.search-container p {
+  margin-bottom: 0px;
+}
+
+.filter-search {
+  margin-left: 100px;
+  margin-right: 100px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.filter-search p {
+  margin-bottom: 0px;
+}
+
+form {
+  display: flex;
+  align-items: flex-end;
+}
+
+form select {
+  font-family: "Roboto Mono", monospace;
+  margin-left: 5px;
+  border: 1px solid black;
 }
 
 @media screen and (max-width: 1039px) {

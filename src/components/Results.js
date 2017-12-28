@@ -25,7 +25,7 @@ class Results extends Component {
 
   handleSearch(e) {
     e.preventDefault()
-    let value = document.getElementById('search-input').value
+    const value = document.getElementById('search-input').value
     this.props.updateSearchState(value)
     document.getElementById('search-input').value = ''
   }
@@ -46,15 +46,17 @@ class Results extends Component {
           <div>
             <p className="showing-language">Showing results for {this.props.language || "all languages"}</p>
           </div>
-          <form onChange={this.props.handleSort}>
-            <p>Filter results by: </p>
-            <select name="sort">
-              <option value="stars">Popularity</option>
-              <option value="created">Newest</option>
-            </select>
-          </form>
-          <div className="search-container">
-            <p>Searching for:{this.props.searchTerm || ' n/a'}</p><Search handleSearch={this.handleSearch} />
+          <div className="filter-search">
+            <form onChange={this.props.handleSort}>
+              <p>Filter results by: </p>
+              <select name="sort">
+                <option value="stars">Popularity</option>
+                <option value="created">Newest</option>
+              </select>
+            </form>
+            <div className="search-container">
+              <p>Searching for: <b>{this.props.searchTerm || 'n/a'}</b></p><Search handleSearch={this.handleSearch} />
+            </div>
           </div>
           <div className="item-list">
             {this.props.data.map((item, index) => (
