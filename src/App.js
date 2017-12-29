@@ -14,8 +14,8 @@ class App extends Component {
       isLoading: true,
       results: [],
       label: 'bug',
+      sort: 'created',
       language: '',
-      sort: 'stars',
       searchTerm: ''
     }
     this.handleLangChange = this.handleLangChange.bind(this)
@@ -46,7 +46,7 @@ class App extends Component {
   }
 
   componentWillMount() {
-    fetch(`https://api.github.com/search/issues?q=windows+label:${this.state.label}+language:${this.state.language}+state:open&starred?sort=${this.state.sort}&per_page=80&direction=asc`)
+    fetch(`https://api.github.com/search/issues?q=bug+label:${this.state.label}+language:${this.state.language}+state:open&per_page=80&sort=${this.state.sort}&order=desc`)
       .then(response => response.json())
       .then(data => {
         this.setState({ results: data.items, isLoading: false })

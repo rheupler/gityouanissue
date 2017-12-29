@@ -15,7 +15,20 @@
   color: white;
 }
 
+.clear-btn {
+  padding: 3px 5px;
+  background-color: red;
+  color: white;
+  margin-left: 1px;
+}
+
+.clear-btn:focus,
+.search-btn:focus {
+  outline: 0;
+}
+
 #search-input {
   margin-right: 5px;
   border: 1px solid black;
+  padding: 2px;
 }
