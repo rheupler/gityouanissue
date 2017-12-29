@@ -96,6 +96,7 @@ FORM AND SEARCH
   margin-right: 100px;
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;
 }
 
 .filter-search p {
@@ -115,6 +116,25 @@ form select {
 
 .no-results {
   padding-bottom: 50px;
+  margin-bottom: 50px;
+}
+
+.hidden-results-header {
+  color: blue;
+  text-decoration: underline;
+  cursor: pointer;
+  display: inline-block;
+}
+
+#no-results-hidden {
+  display: none;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.rate-limit-link {
+  color: blue;
 }
 
 @media screen and (max-width: 1039px) {

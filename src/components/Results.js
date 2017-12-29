@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Search from './Search';
 import './Results.css'
+import '../scripts';
 
 class Results extends Component {
   constructor(props) {
@@ -50,11 +51,16 @@ class Results extends Component {
       }
     }
 
+    function noResults() {
+      const hiddenResultsDiv = document.getElementById('no-results-hidden');
+      hiddenResultsDiv.style.display = 'block';
+    }
+
     if (this.props.isLoading) {
       return (
         <h1 className="loading">Loading...</h1>
       )
-    } if (this.props.data.length > 0){
+    } if (this.props.data && this.props.data.length > 0){
       return (
         <div>
           <div>
@@ -92,15 +98,21 @@ class Results extends Component {
           </div>
         </div>
       )
-    } if (this.props.data.length === 0 ) {
+    } if (!this.props.data || this.props.data.length === 0) {
       return (
-        <h1 className="no-results">No Results...:(</h1>
+        <div className="no-results">
+          <h1>No Results...:(</h1>
+          <p onClick={noResults} className="hidden-results-header"><i>Seeing this often?</i></p>
+          <div id="no-results-hidden">
+            <p>If you're not seeing any results when you change filters, it may be because of the rate in which you're trying to access the data. This application uses Github's API in order to provide the best and latest issues for you. If you try to search different languages and labels in a short period of time, you may have exceeded the API's rate limit.</p>
+            <p>You can check your rate limit on Github <a className="rate-limit-link" href="https://api.github.com/rate_limit">here</a> or try again later.</p>
+          </div>
+        </div>
       )
     }
   }
 
   render() {
-    const handleEmptyData = this.handleEmptyData;
     return (
       <div>
   	  { this.renderList() }

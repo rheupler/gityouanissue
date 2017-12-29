@@ -16,4 +16,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
   btnWrapperLabel.addEventListener('click', handleClickLabel);
   btnWrapperLang.addEventListener('click', handleClickLang);
+
 })
