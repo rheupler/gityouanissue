@@ -137,8 +137,24 @@ form select {
   color: blue;
 }
 
-@media screen and (max-width: 1039px) {
+@media screen and (min-width: 601px) and (max-width: 1039px) {
   .item {
     width: 80%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .item-list {
+    margin-left: 35px;
+    margin-right: 35px;
+  }
+
+  .card {
+    width: 100%;
+  }
+
+  .filter-search {
+    margin-left: 50px;
+    margin-right: 50px;
   }
 }
