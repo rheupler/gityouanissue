@@ -20,7 +20,6 @@ class Results extends Component {
         .then(response => response.json())
         .then(data => {
           this.props.handleUpdate(data.items)
-          console.log("updated")
         })
         .catch(err => console.log(err))
     }
