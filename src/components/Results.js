@@ -67,7 +67,7 @@ class Results extends Component {
           </div>
           <div className="filter-search">
             <form onChange={this.props.handleSort}>
-              <p>Filter results by: </p>
+              <p className="filter-text">Filter results by: </p>
               <select name="sort">
                 <option value="created">Newest</option>
                 <option value="comments">Popularity</option>

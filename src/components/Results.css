@@ -149,12 +149,35 @@ form select {
     margin-right: 35px;
   }
 
+  .showing-language {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .filter-text {
+    width: 120px;
+  }
+
   .card {
     width: 100%;
+  }
+
+  .title {
+    font-size: 1.1rem;
   }
 
   .filter-search {
     margin-left: 50px;
     margin-right: 50px;
+  }
+
+  #no-results-hidden p {
+    font-size: 12px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .search-container {
+    display: block;
   }
 }
