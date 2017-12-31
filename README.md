@@ -2,7 +2,7 @@
 
 ## Helps people contribute to open source issues
 
-[Live demo](http://gitsomeissues.herokuapp.com)
+[Live demo](https://gityouanissue.com)
 
 ## Installation
 
