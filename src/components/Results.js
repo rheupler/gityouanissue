@@ -104,7 +104,7 @@ class Results extends Component {
           <p onClick={noResults} className="hidden-results-header"><i>Seeing this often?</i></p>
           <div id="no-results-hidden">
             <p>If you're not seeing any results when you change filters, it may be because of the rate in which you're trying to access the data. This application uses Github's API in order to provide the best and latest issues for you. If you try to search different languages and labels in a short period of time, you may have exceeded the API's rate limit.</p>
-            <p>You can check your rate limit on Github <a className="rate-limit-link" href="https://api.github.com/rate_limit">here</a> or try again later.</p>
+            <p>You can check your rate limit on Github <a className="rate-limit-link" href="https://api.github.com/rate_limit">here</a> or try again shortly.</p>
           </div>
         </div>
       )
