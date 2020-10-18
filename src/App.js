@@ -1,57 +1,53 @@
-import React, { Component } from 'react';
-import './App.css';
-import './scripts.js'
-import Navbar from './components/Navbar';
-import Labels from './components/Labels';
-import Results from './components/Results';
-
+import React, { Component, useEffect, useState } from "react";
+import "./App.css";
+import "./scripts.js";
+import Navbar from "./components/Navbar";
+import Labels from "./components/Labels";
+import Results from "./components/Results";
 
 class App extends Component {
   constructor(props) {
-    super(props)
+    super(props);
 
     this.state = {
       isLoading: true,
       results: [],
-      label: 'bug',
-      sort: 'created',
-      language: '',
-      searchTerm: ''
-    }
-    this.handleLangChange = this.handleLangChange.bind(this)
-    this.handleUpdate = this.handleUpdate.bind(this)
-    this.handleLabelChange = this.handleLabelChange.bind(this)
-    this.handleSort = this.handleSort.bind(this)
-    this.updateSearchState = this.updateSearchState.bind(this)
+      label: "bug",
+      sort: "created",
+      language: "",
+      searchTerm: "",
+    };
   }
 
-  handleLangChange(e) {
-    this.setState({ language: e.target.value, searchTerm: '' })
-  }
+  handleLangChange = (e) => {
+    this.setState({ language: e.target.value, searchTerm: "" });
+  };
 
-  handleLabelChange(e) {
-    this.setState({ label: e.target.value, searchTerm: '' })
-  }
+  handleLabelChange = (e) => {
+    this.setState({ label: e.target.value, searchTerm: "" });
+  };
 
-  handleUpdate(prop) {
-    this.setState({ results: prop, isLoading: false })
-  }
+  handleUpdate = (prop) => {
+    this.setState({ results: prop, isLoading: false });
+  };
 
-  handleSort(e) {
-    this.setState({ sort: e.target.value })
-  }
+  handleSort = (e) => {
+    this.setState({ sort: e.target.value });
+  };
 
-  updateSearchState(props) {
-    this.setState({ searchTerm: props })
-  }
+  updateSearchState = (props) => {
+    this.setState({ searchTerm: props });
+  };
 
   componentWillMount() {
-    fetch(`https://api.github.com/search/issues?q=bug+label:${this.state.label}+language:${this.state.language}+state:open&per_page=80&sort=${this.state.sort}&order=desc`)
-      .then(response => response.json())
-      .then(data => {
-        this.setState({ results: data.items, isLoading: false })
+    fetch(
+      `https://api.github.com/search/issues?q=bug+label:${this.state.label}+language:${this.state.language}+state:open&per_page=80&sort=${this.state.sort}&order=desc`
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        this.setState({ results: data.items, isLoading: false });
       })
-      .catch(err => console.log(err))
+      .catch((err) => console.log(err));
   }
 
   render() {
