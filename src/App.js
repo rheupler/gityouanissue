@@ -1,77 +1,72 @@
-import React, { Component, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./App.css";
 import "./scripts.js";
 import Navbar from "./components/Navbar";
 import Labels from "./components/Labels";
 import Results from "./components/Results";
 
-class App extends Component {
-  constructor(props) {
-    super(props);
+const App = () => {
+  const [isLoading, setIsLoading] = useState(true);
+  const [results, setResults] = useState([]);
+  const [sort, setSort] = useState("created");
+  const [language, setLanguage] = useState("");
+  const [searchTerm, setSearchTerm] = useState("");
 
-    this.state = {
-      isLoading: true,
-      results: [],
-      label: "bug",
-      sort: "created",
-      language: "",
-      searchTerm: "",
-    };
-  }
-
-  handleLangChange = (e) => {
-    this.setState({ language: e.target.value, searchTerm: "" });
+  const handleLangChange = (e) => {
+    setLanguage(e.target.value);
+    setSearchTerm("");
   };
 
-  handleLabelChange = (e) => {
-    this.setState({ label: e.target.value, searchTerm: "" });
+  const handleLabelChange = (e) => {
+    setSearchTerm("");
+    setLabel(e.target.value);
   };
 
-  handleUpdate = (prop) => {
-    this.setState({ results: prop, isLoading: false });
+  const handleUpdate = (prop) => {
+    setIsLoading(false);
+    setResults(prop);
   };
 
-  handleSort = (e) => {
-    this.setState({ sort: e.target.value });
+  const handleSort = (e) => {
+    setSort(e.target.value);
   };
 
-  updateSearchState = (props) => {
-    this.setState({ searchTerm: props });
+  const updateSearchState = (props) => {
+    setSearchTerm(props);
   };
 
-  componentWillMount() {
+  useEffect(() => {
     fetch(
-      `https://api.github.com/search/issues?q=bug+label:${this.state.label}+language:${this.state.language}+state:open&per_page=80&sort=${this.state.sort}&order=desc`
+      `https://api.github.com/search/issues?q=bug+label:${label}+language:${language}+state:open&per_page=80&sort=${sort}&order=desc`
     )
       .then((response) => response.json())
       .then((data) => {
-        this.setState({ results: data.items, isLoading: false });
+        setResults(data.items);
+        setIsLoading(false);
       })
       .catch((err) => console.log(err));
-  }
+  });
 
-  render() {
-    return (
-      <div className="App">
-        <Navbar />
-        <Labels
-          handleLangChange={this.handleLangChange}
-          handleLabelChange={this.handleLabelChange}
-        />
-        <Results
-          data={this.state.results}
-          isLoading={this.state.isLoading}
-          language={this.state.language}
-          label={this.state.label}
-          sort={this.state.sort}
-          searchTerm={this.state.searchTerm}
-          handleUpdate={this.handleUpdate}
-          handleSort={this.handleSort}
-          updateSearchState={this.updateSearchState}
-        />
-      </div>
-    );
-  }
-}
+  return (
+    <div className="App">
+      <Navbar />
+      <Labels
+        handleLangChange={handleLangChange}
+        handleLabelChange={handleLabelChange}
+      />
+      <Results
+        data={results}
+        isLoading={isLoading}
+        language={language}
+        label={label}
+        sort={sort}
+        searchTerm={searchTerm}
+        handleUpdate={handleUpdate}
+        handleSort={handleSort}
+        updateSearchState={updateSearchState}
+      />
+    </div>
+  );
+};
 
 export default App;
